@@ -8,6 +8,7 @@
     align-items: center;
     overflow: hidden;
     color: white;
+    margin-top: calc(-1 * var(--header-height)); /* Pull hero up under the main content's top padding */
 }
 
 .hero-video-container {
@@ -61,7 +62,9 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 0 20px;
+    /* padding: 0 20px; */ /* Replaced for consistency */
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
     max-width: 1200px;
     margin: 0 auto;
 }

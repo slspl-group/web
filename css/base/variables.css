@@ -76,4 +76,7 @@
     --z-modal: 300;
     --z-popover: 400;
     --z-max: 999;
+    
+    /* Header specific */
+    --header-height: 92px; /* Assuming 60px logo + 2 * 1rem (16px) padding */
 }

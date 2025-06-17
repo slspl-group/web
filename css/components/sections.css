@@ -1,12 +1,18 @@
+/* Add padding to main element to account for fixed header */
+main {
+    padding-top: var(--header-height);
+}
+
 section {
     padding: var(--space-2xl) 0; 
     position: relative;
     overflow: hidden; 
 }
 
-main > section:first-child:not(.hero) {
+/* Remove this rule as main's padding-top now handles the header offset globally */
+/* main > section:first-child:not(.hero) {
     padding-top: calc(110px + var(--space-2xl)); 
-}
+} */
 
 /* Common section styles */
 section {
@@ -140,7 +146,7 @@ section {
 /* Services Section */
 .services-section {
     background-color: var(--light-bg);
-    padding: var(--space-3xl) 0;
+    /* padding: var(--space-3xl) 0; */ /* Removed to use default section padding for consistency */
     text-align: center;
 }
 
@@ -733,7 +739,7 @@ section {
 /* Company Overview Section - Redesign v2 */
 .company-overview-section.alt-bg {
     background-color: white;
-    padding: var(--space-3xl) 0;
+    /* padding: var(--space-3xl) 0; */ /* Removed to use default section padding for consistency */
     position: relative;
 }
 
