@@ -209,7 +209,7 @@ section {
     margin: 0;
     text-align: center;
     overflow: hidden;
-    height: 120vh; /* Increased height beyond full viewport */
+    height: 100vh; /* Increased height beyond full viewport */
     margin-top: -80px; /* Negative margin to pull content up over the navbar */
     margin-bottom: 40px;
     border-radius: 0; 
@@ -226,14 +226,14 @@ section {
 
 #hero-video {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
     z-index: 0;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
     object-fit: cover;
 }
 

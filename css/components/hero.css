@@ -8,7 +8,7 @@
     align-items: center;
     overflow: hidden;
     color: white;
-    margin-top: calc(-1 * var(--header-height)); /* Pull hero up under the main content's top padding */
+    
 }
 
 .hero-video-container {
