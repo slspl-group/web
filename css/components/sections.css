@@ -9,10 +9,7 @@ section {
     overflow: hidden; 
 }
 
-/* Remove this rule as main's padding-top now handles the header offset globally */
-/* main > section:first-child:not(.hero) {
-    padding-top: calc(110px + var(--space-2xl)); 
-} */
+
 
 /* Common section styles */
 section {

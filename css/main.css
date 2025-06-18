@@ -7,7 +7,6 @@
 
 /* Layout */
 @import 'layout/containers.css';
-@import 'layout/grid.css';
 
 /* Components */
 @import 'components/header.css';
@@ -26,43 +25,11 @@
 @import 'pages/about.css';
 @import 'pages/contact.css';
 @import 'pages/service-page.css';
+@import 'pages/home.css';
 
 /* Utilities */
 @import 'utilities/helpers.css';
 
 /* Responsive */
 @import 'responsive.css';
-
-.aboutus-center-block {
-    text-align: center;
-    margin: 48px auto 24px auto;
-    max-width: 900px;
-}
-.aboutus-title {
-    display: block;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #222;
-    letter-spacing: 1px;
-}
-.aboutus-subtitle {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #444;
-    margin-bottom: 0;
-}
-.aboutus-pill {
-    display: inline-block;
-    background: #fff8e1;
-    color: #bfa13a;
-    border-radius: 999px;
-    padding: 0.4em 1.6em 0.4em 1.6em;
-    font-size: 1.1em;
-    font-weight: 700;
-    letter-spacing: 1px;
-    box-shadow: 0 1px 4px rgba(191,161,58,0.08);
-    margin-bottom: 18px;
-    margin-top: 3px;
-}
 
