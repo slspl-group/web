@@ -7,513 +7,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="assets/images/logo-png.png">
-    <style>
-        /* Page-specific styles */
-        .about-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/about-hero-bg.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
-        }
-        
-        .statistics-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-            margin: var(--space-3xl) 0;
-            text-align: center;
-        }
-        
-        .statistic-item {
-            background: white;
-            border-radius: var(--border-radius-md);
-            padding: var(--space-lg);
-            box-shadow: var(--box-shadow-sm);
-            transition: var(--transition-normal);
-        }
-        
-        .statistic-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-lg);
-        }
-        
-        .stat-number {
-            font-size: var(--text-4xl);
-            font-weight: var(--font-weight-bold);
-            color: var(--primary);
-            margin-bottom: var(--space-xs);
-            font-family: var(--font-secondary);
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: var(--text-md);
-            color: var(--text-light);
-        }
-        
-        .about-mission-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-3xl);
-            align-items: center;
-            margin: var(--space-3xl) 0;
-        }
-        
-        .mission-content {
-            padding-right: var(--space-xl);
-        }
-        
-        .mission-image {
-            position: relative;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--box-shadow-lg);
-            height: 450px;
-        }
-        
-        .mission-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .mission-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom right, rgba(192, 144, 87, 0.8), transparent);
-            z-index: 1;
-        }
-        
-        .mission-image::after {
-            content: '"Our Mission"';
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-family: var(--font-secondary);
-            font-style: italic;
-            font-size: var(--text-2xl);
-            z-index: 2;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: var(--space-4xl) auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: var(--border-radius-full);
-        }
-        
-        .timeline-item {
-            padding: 10px 50px;
-            position: relative;
-            width: 50%;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--primary);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: var(--box-shadow-md);
-        }
-        
-        .timeline-left {
-            left: 0;
-            text-align: right;
-        }
-        
-        .timeline-right {
-            left: 50%;
-            text-align: left;
-        }
-        
-        .timeline-left::after {
-            right: -12px;
-        }
-        
-        .timeline-right::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: var(--space-lg);
-            background-color: white;
-            position: relative;
-            border-radius: var(--border-radius-md);
-            box-shadow: var(--box-shadow-md);
-        }
-        
-        .timeline-content h3 {
-            margin-bottom: var(--space-xs);
-            color: var(--primary);
-        }
-        
-        .timeline-year {
-            position: absolute;
-            top: -10px;
-            font-weight: var(--font-weight-bold);
-            background: var(--gradient-primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: var(--border-radius-full);
-            font-size: var(--text-sm);
-        }
-        
-        .timeline-left .timeline-year {
-            right: 10px;
-        }
-        
-        .timeline-right .timeline-year {
-            left: 10px;
-        }
-        
-        .team-section {
-            padding: var(--space-3xl) 0;
-            background-color: var(--light-bg);
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Changed from 4 to 2 for two profiles */
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-        
-        .team-member {
-            background-color: white;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--box-shadow-sm);
-            transition: var(--transition-normal);
-            text-align: center;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-lg);
-        }
-        
-        .member-photo {
-            /* height: 250px; */ /* Removed fixed height */
-            aspect-ratio: 1 / 1; /* Added for 1:1 aspect ratio */
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .team-member:hover .member-photo img {
-            transform: scale(1.1);
-        }
-        
-        .member-info {
-            padding: var(--space-md);
-        }
-        
-        .member-info h3 {
-            margin-bottom: 5px;
-            color: var(--text-dark);
-        }
-        
-        .member-position {
-            font-size: var(--text-sm);
-            color: var(--primary);
-            font-style: italic;
-            margin-bottom: var(--space-sm);
-            display: block;
-        }
-        
-        .member-socials {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: var(--space-sm);
-        }
-        
-        .member-socials a {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: var(--light-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dark);
-            transition: var(--transition-normal);
-        }
-        
-        .member-socials a:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        /* Enhanced feature items */
-        .feature-item {
-            padding: var(--space-xl);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--box-shadow-md);
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(192, 144, 87, 0.1), transparent);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .feature-item:hover {
-            transform: translateY(-15px);
-            border-bottom: 3px solid var(--primary);
-        }
-        
-        .feature-item:hover::before {
-            opacity: 1;
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .about-mission-section,
-            .statistics-row {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .timeline-left,
-            .timeline-right {
-                left: 0;
-                text-align: left;
-            }
-            
-            .timeline-left::after,
-            .timeline-right::after {
-                left: 18px;
-            }
-            
-            .timeline-left .timeline-year,
-            .timeline-right .timeline-year {
-                left: 10px;
-                right: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .about-hero {
-                padding: calc(var(--space-xl) + 80px) 0 var(--space-xl);
-                background-attachment: scroll;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .page-subtitle {
-                font-size: 1rem;
-                padding: 0 var(--space-md);
-            }
-            
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-            
-            .statistics-row {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-md);
-                padding: 0 var(--space-md);
-            }
-            
-            .statistic-item {
-                padding: var(--space-md) var(--space-sm);
-            }
-            
-            .stat-number {
-                font-size: 2.2rem;
-            }
-            
-            .about-mission-section {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
-            }
-            
-            .mission-content {
-                padding-right: 0;
-                order: 2;
-            }
-            
-            .mission-image {
-                height: 250px;
-                order: 1;
-                margin: 0 var(--space-md);
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr; /* Mobile screens: 1 column */
-                max-width: 300px;
-                margin-left: auto; /* Center the grid */
-                margin-right: auto; /* Center the grid, preserves margin-top from base */
-                gap: var(--space-xl);
-            }
-            
-            .member-photo {
-                /* height: 200px; */ /* Removed fixed height */
-            }
-            
-            .timeline::after {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 50px;
-                padding-right: var(--space-sm);
-                margin-bottom: var(--space-md);
-            }
-            
-            .timeline-item::after {
-                left: 9px;
-                width: 22px;
-                height: 22px;
-            }
-            
-            .timeline-left,
-            .timeline-right {
-                left: 0;
-                text-align: left;
-            }
-            
-            .timeline-left::after,
-            .timeline-right::after {
-                left: 9px;
-            }
-            
-            .timeline-left .timeline-year,
-            .timeline-right .timeline-year {
-                left: 0;
-                right: auto;
-                top: -8px;
-                font-size: 0.7rem;
-                padding: 3px 10px;
-            }
-            
-            .timeline-content {
-                padding: var(--space-md) var(--space-sm);
-                margin-bottom: var(--space-sm);
-            }
-            
-            .timeline-content h3 {
-                font-size: 1.1rem;
-                margin-bottom: var(--space-xs);
-            }
-            
-            .timeline-content p {
-                font-size: 0.9rem;
-            }
-            
-            .feature-item {
-                padding: var(--space-md);
-                margin-bottom: var(--space-md);
-            }
-            
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .cta-buttons .btn {
-                width: 100%;
-                margin-bottom: var(--space-xs);
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .statistics-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .statistic-item {
-                max-width: 200px;
-                margin: 0 auto var(--space-md);
-            }
-            
-            .about-content-section {
-                padding: 0 var(--space-sm);
-            }
-            
-            .section-tag {
-                font-size: 0.65rem;
-                padding: 4px 12px;
-            }
-            
-            .commitment-list li {
-                margin-bottom: var(--space-md);
-            }
-            
-            .member-socials {
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -589,106 +82,108 @@
             </div>
         </section>
 
-        <!-- About Intro Section -->
-        <section class="about-content-section">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag fade-in">About Us</span>
-                    <h2 class="section-title centered fade-up">Dedicated to Simplifying Document Authentication</h2>
-                    <p class="section-subtitle fade-up">Founded with a vision to streamline complex attestation processes, we've grown to become one of India's most trusted names in document attestation services.</p>
-                </div>
-                
-                <!-- Statistics Row -->
-                <div class="statistics-row">
-                    <div class="statistic-item fade-up">
-                        <span class="stat-number" data-count="12">0</span>
-                        <span class="stat-label">Years Experience</span>
+        <div style="margin: 0 5rem;">
+            <!-- About Intro Section -->
+            <section class="about-content-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag fade-in">About Us</span>
+                        <h2 class="section-title centered fade-up">Dedicated to Simplifying Document Authentication</h2>
+                        <p class="section-subtitle fade-up">Founded with a vision to streamline complex attestation processes, we've grown to become one of India's most trusted names in document attestation services.</p>
                     </div>
-                    <div class="statistic-item fade-up" data-delay="200">
-                        <span class="stat-number" data-count="35">0</span>
-                        <span class="stat-label">Countries Served</span>
+                    
+                    <!-- Statistics Row -->
+                    <div class="statistics-row">
+                        <div class="statistic-item fade-up">
+                            <span class="stat-number" data-count="12">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="statistic-item fade-up" data-delay="200">
+                            <span class="stat-number" data-count="35">0</span>
+                            <span class="stat-label">Countries Served</span>
+                        </div>
+                        <div class="statistic-item fade-up" data-delay="400">
+                            <span class="stat-number" data-count="15000">0</span>
+                            <span class="stat-label">Documents Processed</span>
+                        </div>
+                        <div class="statistic-item fade-up" data-delay="600">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">% Client Satisfaction</span>
+                        </div>
                     </div>
-                    <div class="statistic-item fade-up" data-delay="400">
-                        <span class="stat-number" data-count="15000">0</span>
-                        <span class="stat-label">Documents Processed</span>
-                    </div>
-                    <div class="statistic-item fade-up" data-delay="600">
-                        <span class="stat-number" data-count="98">0</span>
-                        <span class="stat-label">Client Satisfaction %</span>
-                    </div>
-                </div>
-                
-                <!-- Mission and Vision Section -->
-                <div class="about-mission-section">
-                    <div class="mission-content fade-left">
-                        <h2>Our Mission & Vision</h2>
-                        <p class="lead-paragraph">We aim to provide hassle-free, timely, and authentic document attestation services that help our clients achieve their international education, employment, and business goals without bureaucratic delays or complications.</p>
+                    
+                    <!-- Mission and Vision Section -->
+                    <div class="about-mission-section">
+                        <div class="mission-content fade-left">
+                            <h2>Our Mission & Vision</h2>
+                            <p class="lead-paragraph">We aim to provide hassle-free, timely, and authentic document attestation services that help our clients achieve their international education, employment, and business goals without bureaucratic delays or complications.</p>
+                            
+                            <h3 class="about-subtitle">Our Vision</h3>
+                            <p>To be the most trusted name in document attestation across India, recognized for our integrity, efficiency, and client-centered approach.</p>
+                            
+                            <h3 class="about-subtitle">Our Core Values</h3>
+                            <ul class="commitment-list">
+                                <li><i class="fas fa-check-circle"></i> <strong>Integrity:</strong> We maintain complete transparency in all our processes</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Excellence:</strong> We strive for perfection in every document we handle</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Efficiency:</strong> We value your time and work to deliver within promised timeframes</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Client Focus:</strong> We provide personalized attention to each client</li>
+                            </ul>
+                        </div>
                         
-                        <h3 class="about-subtitle">Our Vision</h3>
-                        <p>To be the most trusted name in document attestation across India, recognized for our integrity, efficiency, and client-centered approach.</p>
+                        <div class="mission-image fade-right">
+                            <img src="assets\images\mission.jpg" alt="Our Mission" loading="lazy" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Section -->
+                    <div class="section-header">
+                        <h2 class="section-title centered fade-up">Our Journey</h2>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item timeline-left fade-right">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2012</span>
+                                <h3>Foundation</h3>
+                                <p>Saurabh Legal Services was founded with a small team in New Delhi, focusing on basic attestation services.</p>
+                            </div>
+                        </div>
                         
-                        <h3 class="about-subtitle">Our Core Values</h3>
-                        <ul class="commitment-list">
-                            <li><i class="fas fa-check-circle"></i> <strong>Integrity:</strong> We maintain complete transparency in all our processes</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Excellence:</strong> We strive for perfection in every document we handle</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Efficiency:</strong> We value your time and work to deliver within promised timeframes</li>
-                            <li><i class="fas fa-check-circle"></i> <strong>Client Focus:</strong> We provide personalized attention to each client</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mission-image fade-right">
-                        <img src="assets\images\mission.jpg" alt="Our Mission" loading="lazy" onerror="this.src='assets/images/placeholder.jpg'">
-                    </div>
-                </div>
-                
-                <!-- Timeline Section -->
-                <div class="section-header">
-                    <h2 class="section-title centered fade-up">Our Journey</h2>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item timeline-left fade-right">
-                        <div class="timeline-content">
-                            <span class="timeline-year">2012</span>
-                            <h3>Foundation</h3>
-                            <p>Saurabh Legal Services was founded with a small team in New Delhi, focusing on basic attestation services.</p>
+                        <div class="timeline-item timeline-right fade-left">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2015</span>
+                                <h3>Service Expansion</h3>
+                                <p>Expanded our services to include embassy attestation for all major countries and translation services.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item timeline-right fade-left">
-                        <div class="timeline-content">
-                            <span class="timeline-year">2015</span>
-                            <h3>Service Expansion</h3>
-                            <p>Expanded our services to include embassy attestation for all major countries and translation services.</p>
+                        
+                        <div class="timeline-item timeline-left fade-right">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2018</span>
+                                <h3>Growth & Recognition</h3>
+                                <p>Registered as a Private Limited company and received recognition for excellence in document services.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item timeline-left fade-right">
-                        <div class="timeline-content">
-                            <span class="timeline-year">2018</span>
-                            <h3>Growth & Recognition</h3>
-                            <p>Registered as a Private Limited company and received recognition for excellence in document services.</p>
+                        
+                        <div class="timeline-item timeline-right fade-left">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2021</span>
+                                <h3>Digital Transformation</h3>
+                                <p>Implemented digital tracking systems and expanded our team to provide faster and more efficient services.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item timeline-right fade-left">
-                        <div class="timeline-content">
-                            <span class="timeline-year">2021</span>
-                            <h3>Digital Transformation</h3>
-                            <p>Implemented digital tracking systems and expanded our team to provide faster and more efficient services.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item timeline-left fade-right">
-                        <div class="timeline-content">
-                            <span class="timeline-year">Today</span>
-                            <h3>Industry Leader</h3>
-                            <p>Now recognized as one of India's leading attestation service providers with a nationwide presence and global connections.</p>
+                        
+                        <div class="timeline-item timeline-left fade-right">
+                            <div class="timeline-content">
+                                <span class="timeline-year">Today</span>
+                                <h3>Industry Leader</h3>
+                                <p>Now recognized as one of India's leading attestation service providers with a nationwide presence and global connections.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
         
         <!-- Team Section -->
         <section class="team-section">
